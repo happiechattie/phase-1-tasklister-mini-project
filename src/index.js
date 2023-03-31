@@ -4,16 +4,17 @@ document.addEventListener(("DOMContentLoaded"), () => {
     makeTask(e.target.querySelector('#new-task-description').value, e);
     document.querySelector('form').reset();
   })
-});
-  /*
-  let list = taskList.getElementsByTagName('p');
-  console.log(list);
-  for (item of list){
-    itemCopy = document.createElement('p');
 
-    itemCopy = item;
-    document.getElementById('tasks').append(itemCopy);
-  }*/
+  setName();})
+
+  function setName(){
+  //  document.querySelector('h2').innerText="yaaaa";
+    let nameForm = document.querySelector('h2').querySelector('form');
+    nameForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      document.querySelector('h2').innerText = e.target.querySelector('input').value + "'s to do list";
+    })
+  }
 
 function makeTask(task, fromForm){
   let p = document.createElement('p');
@@ -94,32 +95,11 @@ function addEditButton(p){
 //      handleDelete();
 //      addDate(e.target.querySelector('.dueDate').value);
       document.querySelector('form').reset();
-    }
-    )
-})}
-
+    })})
+  }
 
 
 function makeChange(task2, e){
   makeTask(task2, e);
   e.target.parentNode.remove();
 }
-
-/*
-//submits changes to task
-function makeChange(button) {
-  editb = button;
-  editb.querySelector('button'),addEventListener('submit', function(e){
-    e.preventDefault();
-    newTask = inputTask.value;
-    let oldTask = form.parentNode;
-    console.log(oldTask);
-    oldTask.innerText = newTask;
-    addEditButton();
-    handleDelete();
-    console.log(document.querySelector('#editForm'));
-    addDate(document.querySelector('#editForm').querySelector('#newDate').value);
-    //form.querySelector('p').value;
-//      document.querySelector('form').querySelector('#dueDate').value
-  })
-}*/
